@@ -50,7 +50,6 @@ module.exports = function(_query) {
                 connection.end();
                 logger.info('Connection closed');
 
-                logger.info(`Results: ${JSON.stringify(results)}`);
                 resolve(results);
             });
         });
