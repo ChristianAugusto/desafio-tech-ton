@@ -1,5 +1,5 @@
 const express = require('express');
-const { PORT } = require('./constants');
+const { PORT, ENVIRONMENT } = require('./constants');
 const employeesRoutes = require('./routes/employees');
 const statusRoutes = require('./routes/status');
 const loggerHandler = require('./utils/logger');
@@ -17,4 +17,9 @@ app.use('/employees', employeesRoutes);
 app.use('/status', statusRoutes);
 
 
-app.listen(PORT, () => logger.info(`Server running at port ${PORT}`));
+if (ENVIRONMENT == 'docker') {
+    app.listen(PORT, '0.0.0.0', () => logger.info(`Server running at port ${PORT}`));
+}
+else {
+    app.listen(PORT, () => logger.info(`Server running at port ${PORT}`));
+}

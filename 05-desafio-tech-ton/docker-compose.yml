@@ -1,10 +1,10 @@
 
 version: '3.8'
 services:
-  desafio-tech-ton:
-    container_name: 'desafio-tech-ton'
-    build: ./docker/webserver
-    image: 'desafio-tech-ton:latest'
+  desafio-tech-ton-server:
+    container_name: 'desafio-tech-ton-server'
+    build: ./
+    image: 'desafio-tech-ton-server:latest'
     ports:
       - '80:3000'
     command: 'bash ./shell-scripts/docker-compose-deploy.sh'
@@ -22,4 +22,4 @@ services:
     expose:
       - 3306
     volumes:
-      - ./databases/mysql:/var/lib/mysql
+      - ./mysql:/var/lib/mysql
