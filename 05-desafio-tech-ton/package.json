@@ -1,0 +1,28 @@
+{
+    "name": "05-desafio-tech-ton",
+    "version": "1.0.0",
+    "description": "Desafio Tech | Ton",
+    "main": "index.js",
+    "scripts": {
+        "start": "node ./src/index.js",
+        "dev": "nodemon ./src/index.js",
+        "lint": "npx eslint src/**",
+        "lintstart": "npm run lint && npm start"
+    },
+    "keywords": [],
+    "author": "Christian Augusto Martins dos Santos Barros (christianbetta@gmail.com)",
+    "license": "MIT",
+    "dependencies": {
+        "express": "4.17.1",
+        "mysql": "^2.18.1",
+        "winston": "3.3.3",
+        "winston-loggly-bulk": "3.1.1"
+    },
+    "devDependencies": {
+        "eslint": "7.22.0",
+        "nodemon": "2.0.7"
+    },
+    "engines": {
+        "node": "14.16.0"
+    }
+}
