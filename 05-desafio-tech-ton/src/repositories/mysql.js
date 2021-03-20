@@ -1,6 +1,5 @@
 const mysql = require('mysql');
-const logger = require('../utils/logger');
-const { ENVIRONMENT } = require('./constants');
+const { ENVIRONMENT } = require('../constants');
 const {
     MYSQL_HOST,
     MYSQL_PORT,
@@ -8,10 +7,12 @@ const {
     MYSQL_PASSWORD,
     MYSQL_DATABASE
 } = require('../config')[ENVIRONMENT];
+const loggerHandler = require('../utils/logger');
+const logger = loggerHandler.create();
 
 
 
-module.exports = function(_query) {
+module.exports = function(query) {
     return new Promise((resolve, reject) => {
         const connection = mysql.createConnection({
             host: MYSQL_HOST,
@@ -21,34 +22,25 @@ module.exports = function(_query) {
             database: MYSQL_DATABASE
         });
 
-        connection.connect((err) => {
-            if (err) {
-                logger.info('Error in connect mysql');
-                logger.info(err);
+        connection.connect(function(error) {
+            if (error) {
+                logger.info(`Error in connect mysql, ${error}`);
 
                 connection.end();
-                reject(err);
+                reject(error);
 
                 return;
             }
 
-            logger.info('Connected to mysql');
-
-            logger.info(`Executing query: ${_query}`);
-
-
-            connection.query(_query, (err, results) => {
+            connection.query(query, function(err, results) {
                 if (err) {
                     logger.info(err);
                     connection.end();
                     reject(err);
                     return;
                 }
-                logger.info('Query executed with success');
 
-                logger.info('Closing connection');
                 connection.end();
-                logger.info('Connection closed');
 
                 resolve(results);
             });

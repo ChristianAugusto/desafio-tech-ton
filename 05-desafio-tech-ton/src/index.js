@@ -13,8 +13,8 @@ const app = express();
 app.use(express.json());
 
 
-app.use('/employees', employeesRoutes);
-app.use('/status', statusRoutes);
+app.use('/api/employees', employeesRoutes);
+app.use('/api/status', statusRoutes);
 
 
 if (ENVIRONMENT == 'docker') {
