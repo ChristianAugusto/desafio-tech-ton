@@ -115,8 +115,8 @@ público e realizar redirecionamento de portas no roteador. O que pode acontecer
 é meu IP mudar e não funcionar mais. Então, estou deixando 2 prints aqui da
 chamada para o heroku apontando para meu IP.
 ![Chamada heroku print postman](docs/assets/images/chamada-heroku-print-postman.png)
-![hamada heroku print código](docs/assets/images/chamada-heroku-print-codigo.png)
-![hamada heroku print roteador](docs/assets/images/chamada-heroku-print-roteador.png)
+![Chamada heroku print código](docs/assets/images/chamada-heroku-print-codigo.png)
+![Chamada heroku print roteador](docs/assets/images/chamada-heroku-print-roteador.png)
 
 <br/>
 <br/>
