@@ -210,7 +210,7 @@ router.put('/:id', async function(req, res) {
 
         if (sets.length > 0) {
             const query = `UPDATE \`employees\` SET ${sets.join(',')} WHERE \`id\` = ${id}`;
-            console.log(query);
+
             await mysql(query);
 
 
