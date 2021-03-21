@@ -29,7 +29,16 @@ router.get('/', async function(req, res) {
             startIndex = Number(req.query.startIndex);
         }
 
-        const query = SELECT_EMPLOYEES_QUERY_BUILDER(fields, '', `LIMIT ${startIndex},${EMPLOYEES_LIMIT}`);
+        let limit = EMPLOYEES_LIMIT;
+        if (
+            numberInStr(req.query.limit) &&
+            Number(req.query.limit) <= EMPLOYEES_LIMIT &&
+            Number(req.query.limit) > 0
+        ) {
+            limit = Number(req.query.limit);
+        }
+
+        const query = SELECT_EMPLOYEES_QUERY_BUILDER(fields, '', `LIMIT ${startIndex},${limit}`);
 
         const queryResult = await mysql(query);
 

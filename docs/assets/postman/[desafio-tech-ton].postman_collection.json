@@ -1,0 +1,751 @@
+{
+	"info": {
+		"_postman_id": "8b1fcf4b-1f64-42ec-9288-a36007fad585",
+		"name": "[desafio-tech-ton]",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "docker",
+			"item": [
+				{
+					"name": "employees",
+					"item": [
+						{
+							"name": "Get employee",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{UrlBaseDocker}}/api/employees",
+									"host": [
+										"{{UrlBaseDocker}}"
+									],
+									"path": [
+										"api",
+										"employees"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "id",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "birthDate",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "id,name,birthDate",
+											"disabled": true
+										},
+										{
+											"key": "startIndex",
+											"value": "0",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "2",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get employee detail",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{UrlBaseDocker}}/api/employees/1",
+									"host": [
+										"{{UrlBaseDocker}}"
+									],
+									"path": [
+										"api",
+										"employees",
+										"1"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "id",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "birthDate",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "id,name,birthDate",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create employee",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"teste teste\",\n    \"birthDate\": \"1980-01-01\",\n    \"jobTitle\": \"teste teste\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{UrlBaseDocker}}/api/employees",
+									"host": [
+										"{{UrlBaseDocker}}"
+									],
+									"path": [
+										"api",
+										"employees"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "id",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "birthDate",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "id,name,birthDate",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update employee",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"birthDate\": \"1980-01-02\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{UrlBaseDocker}}/api/employees/4",
+									"host": [
+										"{{UrlBaseDocker}}"
+									],
+									"path": [
+										"api",
+										"employees",
+										"4"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "id",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "birthDate",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "id,name,birthDate",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete employee",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"teste teste\",\n    \"birthDate\": \"1980-01-01\",\n    \"jobTitle\": \"teste teste\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{UrlBaseDocker}}/api/employees/4",
+									"host": [
+										"{{UrlBaseDocker}}"
+									],
+									"path": [
+										"api",
+										"employees",
+										"4"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "id",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "birthDate",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "id,name,birthDate",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "status",
+					"item": [
+						{
+							"name": "get status",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{UrlBaseDocker}}/api/status",
+									"host": [
+										"{{UrlBaseDocker}}"
+									],
+									"path": [
+										"api",
+										"status"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "heroku",
+			"item": [
+				{
+					"name": "employees",
+					"item": [
+						{
+							"name": "Get employee",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{UrlBaseHeroku}}/api/employees",
+									"host": [
+										"{{UrlBaseHeroku}}"
+									],
+									"path": [
+										"api",
+										"employees"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "id",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "birthDate",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "id,name,birthDate",
+											"disabled": true
+										},
+										{
+											"key": "startIndex",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "2",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get employee detail",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{UrlBaseHeroku}}/api/employees/1",
+									"host": [
+										"{{UrlBaseHeroku}}"
+									],
+									"path": [
+										"api",
+										"employees",
+										"1"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "id",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "birthDate",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "id,name,birthDate",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create employee",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"teste teste\",\n    \"birthDate\": \"1980-01-01\",\n    \"jobTitle\": \"teste teste\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{UrlBaseHeroku}}/api/employees",
+									"host": [
+										"{{UrlBaseHeroku}}"
+									],
+									"path": [
+										"api",
+										"employees"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "id",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "birthDate",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "id,name,birthDate",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update employee",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"birthDate\": \"1980-01-02\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{UrlBaseHeroku}}/api/employees/4",
+									"host": [
+										"{{UrlBaseHeroku}}"
+									],
+									"path": [
+										"api",
+										"employees",
+										"4"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "id",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "birthDate",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "id,name,birthDate",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete employee",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"teste teste\",\n    \"birthDate\": \"1980-01-01\",\n    \"jobTitle\": \"teste teste\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{UrlBaseHeroku}}/api/employees/4",
+									"host": [
+										"{{UrlBaseHeroku}}"
+									],
+									"path": [
+										"api",
+										"employees",
+										"4"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "id",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "birthDate",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "id,name,birthDate",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "status",
+					"item": [
+						{
+							"name": "get status",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{UrlBaseHeroku}}/api/status",
+									"host": [
+										"{{UrlBaseHeroku}}"
+									],
+									"path": [
+										"api",
+										"status"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "dev",
+			"item": [
+				{
+					"name": "employees",
+					"item": [
+						{
+							"name": "Get employee",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{UrlBaseDev}}/api/employees?startIndex=0&limit=2",
+									"host": [
+										"{{UrlBaseDev}}"
+									],
+									"path": [
+										"api",
+										"employees"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "id",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "birthDate",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "id,name,birthDate",
+											"disabled": true
+										},
+										{
+											"key": "startIndex",
+											"value": "0"
+										},
+										{
+											"key": "limit",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get employee detail",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{UrlBaseDev}}/api/employees/1",
+									"host": [
+										"{{UrlBaseDev}}"
+									],
+									"path": [
+										"api",
+										"employees",
+										"1"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "id",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "birthDate",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "id,name,birthDate",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create employee",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"teste teste\",\n    \"birthDate\": \"1980-01-01\",\n    \"jobTitle\": \"teste teste\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{UrlBaseDev}}/api/employees",
+									"host": [
+										"{{UrlBaseDev}}"
+									],
+									"path": [
+										"api",
+										"employees"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "id",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "birthDate",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "id,name,birthDate",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update employee",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"birthDate\": \"1980-01-02\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{UrlBaseDev}}/api/employees/4",
+									"host": [
+										"{{UrlBaseDev}}"
+									],
+									"path": [
+										"api",
+										"employees",
+										"4"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "id",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "birthDate",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "id,name,birthDate",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete employee",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"teste teste\",\n    \"birthDate\": \"1980-01-01\",\n    \"jobTitle\": \"teste teste\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{UrlBaseDev}}/api/employees/4",
+									"host": [
+										"{{UrlBaseDev}}"
+									],
+									"path": [
+										"api",
+										"employees",
+										"4"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "id",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "birthDate",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "id,name,birthDate",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "status",
+					"item": [
+						{
+							"name": "get status",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{UrlBaseDev}}/api/status",
+									"host": [
+										"{{UrlBaseDev}}"
+									],
+									"path": [
+										"api",
+										"status"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

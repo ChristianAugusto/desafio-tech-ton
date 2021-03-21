@@ -1,6 +1,3 @@
-DROP DATABASE IF EXISTS `desafio-tech-ton`;
-
-
 CREATE DATABASE IF NOT EXISTS `desafio-tech-ton`;
 
 
