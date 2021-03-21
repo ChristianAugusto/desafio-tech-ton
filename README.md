@@ -104,7 +104,11 @@ Tags:
 <br/>
 
 ## Considerações desenvolvimento
-1. Um dos requisitos era postar no heroku ou AWS. Porém, não possuo uma conta
+1. Um dos atributos do funcionário era a idade. Porém, o que eu recomendaria ser feito,
+uma vez que esse dado precisa ser disponibilizado, é salvar a data de nascimento. Como
+o tempo passa, seria necerário ficar atualizando a idade dos funcionários. Guardar
+a data de nascimento é uma alternativa melhor e otimizada e conseguimos calcular a idade do funcionário salvando esse dado.
+2. Um dos requisitos era postar no heroku ou AWS. Porém, não possuo uma conta
 AWS sem ser a do trabalho então resolvi subir no heroku e apontar para meu IP
 público e realizar redirecionamento de portas no roteador. O que pode acontecer
 é meu IP mudar e não funcionar mais. Então, estou deixando 2 prints aqui da
