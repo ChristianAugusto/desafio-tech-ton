@@ -46,6 +46,7 @@ Além disso, o projeto precisa ser hospedado em alguma plataforma como o Heroku 
 ```
 Node.js - v14.16.0
 npm     - v6.14.11
+MySQL   - v5.7.30
 ```
 
 ## Execução Local
