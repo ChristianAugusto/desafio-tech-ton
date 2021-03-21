@@ -1,8 +1,7 @@
 const express = require('express');
-const moment = require('moment-timezone');
 const mysql = require('../../repositories/mysql');
 const numberInStr = require('../../utils/number-in-str');
-const deleteArrayPosition = require('../../utils/delete-array-position');
+const validateRequiredFields = require('../../modules/validate-required-fields');
 const loggerHandler = require('../../utils/logger');
 const { EMPLOYEES_LIMIT } = require('../../constants');
 const logger = loggerHandler.create();
@@ -117,10 +116,116 @@ router.get('/:id', async function(req, res) {
     }
 });
 
-router.post('/', function(req, res) {
-    return res.status(200).json({
-        foo: 'foo'
-    }).end();
+router.post('/', async function(req, res) {
+    try {
+        const requiredFields = [
+            'name', 'birthDate', 'jobTitle'
+        ];
+
+        if (!validateRequiredFields(requiredFields, req.body)) {
+            return res.status(400).json({
+                created: false,
+                data: null,
+                message: `One or more required fields are missing: ${requiredFields}`
+            }).end();
+        }
+
+
+        const query = `
+            INSERT INTO employees
+                (\`name\`, \`birthDate\`, \`jobTitle\`)
+            VALUES
+                ('${req.body.name}', '${req.body.birthDate}', '${req.body.jobTitle}')
+        `;
+
+        const queryResult = await mysql(query);
+
+
+        return res.status(200).json({
+            created: true,
+            data: {
+                insertId: queryResult.insertId
+            },
+            message: 'Success'
+        }).end();
+    }
+    catch (error) {
+        logger.info(`Error in POST employees by id, ${JSON.stringify({
+            query: req.query,
+            body: req.body,
+            error: error.message || error.data || error.error || error
+        })}`);
+        return res.status(500).json({
+            created: false,
+            data: error.message || error.data || error.error || error,
+            message: 'Error in POST employees by id'
+        }).end();
+    }
+});
+
+router.put('/', async function(req, res) {
+    try {
+        /*
+            TODO: Update employee
+        */
+
+        
+
+
+        return res.status(200).json({
+            updated: true,
+            data: null,
+            message: 'Success'
+        }).end();
+    }
+    catch (error) {
+        logger.info(`Error in PUT employees by id, ${JSON.stringify({
+            query: req.query,
+            body: req.body,
+            error: error.message || error.data || error.error || error
+        })}`);
+        return res.status(500).json({
+            updated: false,
+            data: error.message || error.data || error.error || error,
+            message: 'Error in PUT employees by id'
+        }).end();
+    }
+});
+
+router.delete('/:id', async function(req, res) {
+    try {
+        const id = req.params.id;
+
+        if (!numberInStr(id)) {
+            return res.status(400).json({
+                deleted: false,
+                data: null,
+                message: 'Invalid id type, check if it is number'
+            }).end();
+        }
+
+        const query = `DELETE FROM \`employees\` WHERE \`id\` = ${id}`;
+
+        await mysql(query);
+
+        return res.status(200).json({
+            deleted: true,
+            data: null,
+            message: 'Success'
+        }).end();
+    }
+    catch (error) {
+        logger.info(`Error in DELETE employees by id, ${JSON.stringify({
+            query: req.query,
+            body: req.body,
+            error: error.message || error.data || error.error || error
+        })}`);
+        return res.status(500).json({
+            deleted: false,
+            data: error.message || error.data || error.error || error,
+            message: 'Error in DELETE employees by id'
+        }).end();
+    }
 });
 
 
