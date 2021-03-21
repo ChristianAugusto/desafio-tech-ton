@@ -75,7 +75,7 @@ O MySQL precisa ser configurado seguindo o [script](docs/assets/scripts/1-create
 ## Config chamadas de API:
 Pode ser usada a [config do postman](docs/assets/postman/[desafio-tech-ton].postman_collection.json)
 para testar as requisições. Não esquecer de importar o [environment](docs/assets/postman/desafio-tech-ton.postman_environment.json)
-também e, se necessário, configurar as URLs base
+também e, se necessário, configurar as URLs base.
 
 <br/>
 <br/>
