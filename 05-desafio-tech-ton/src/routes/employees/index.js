@@ -165,10 +165,6 @@ router.post('/', async function(req, res) {
 
 router.put('/:id', async function(req, res) {
     try {
-        /*
-            TODO: Update employee
-        */
-
         const id = req.params.id;
 
         if (!numberInStr(id)) {
