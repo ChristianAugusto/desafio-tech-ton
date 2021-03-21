@@ -163,19 +163,69 @@ router.post('/', async function(req, res) {
     }
 });
 
-router.put('/', async function(req, res) {
+router.put('/:id', async function(req, res) {
     try {
         /*
             TODO: Update employee
         */
 
-        
+        const id = req.params.id;
+
+        if (!numberInStr(id)) {
+            return res.status(400).json({
+                data: null,
+                message: 'Invalid id type, check if it is number'
+            }).end();
+        }
+
+
+        const allowedFields = [
+            {
+                name: 'name',
+                type: 'string'
+            },
+            {
+                name: 'birthDate',
+                type: 'string'
+            },
+            {
+                name: 'jobTitle',
+                type: 'string'
+            }
+        ];
+
+
+        const sets = [];
+
+        Object.entries(req.body).forEach(function([key, value]) {
+            const allowedField = allowedFields.filter(field => field.name === key);
+
+            if (allowedField.length > 0) {
+                if (allowedField[0].type === 'string') {
+                    sets.push(`\`${key}\`='${value}'`);
+                }
+            }
+        });
+
+
+        if (sets.length > 0) {
+            const query = `UPDATE \`employees\` SET ${sets.join(',')} WHERE \`id\` = ${id}`;
+            console.log(query);
+            await mysql(query);
+
+
+            return res.status(200).json({
+                updated: true,
+                data: null,
+                message: 'Success'
+            }).end();
+        }
 
 
         return res.status(200).json({
-            updated: true,
+            updated: false,
             data: null,
-            message: 'Success'
+            message: 'No props to update'
         }).end();
     }
     catch (error) {
