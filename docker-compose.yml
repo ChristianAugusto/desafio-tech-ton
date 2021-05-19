@@ -1,25 +1,24 @@
-
 version: '3.8'
 services:
-  desafio-tech-ton-server:
-    container_name: 'desafio-tech-ton-server'
-    build: ./
-    image: 'desafio-tech-ton-server:latest'
-    ports:
-      - '80:3000'
-    command: 'bash ./shell-scripts/docker-compose-deploy.sh'
-    expose:
-      - 3000
-    volumes:
-      - .:/server
-  desafio-tech-ton-mysql:
-    container_name: 'desafio-tech-ton-mysql'
-    image: mysql:5.7.30
-    environment:
-      - MYSQL_ROOT_PASSWORD=tFdDwvN4gmtoiFnNFb6I72UXlpuydD0JZF9m3cL8dD9LmJHt66
-    ports:
-      - '3306:3306'
-    expose:
-      - 3306
-    volumes:
-      - ./mysql:/var/lib/mysql
+    desafio-tech-ton-server:
+        container_name: 'desafio-tech-ton-server'
+        build: ./
+        image: 'desafio-tech-ton-server:latest'
+        ports:
+            - '80:3000'
+        command: 'bash ./shell-scripts/docker-compose-deploy.sh'
+        expose:
+            - 3000
+        volumes:
+            - .:/server
+    desafio-tech-ton-mysql:
+        container_name: 'desafio-tech-ton-mysql'
+        image: mysql:5.7.30
+        environment:
+            - MYSQL_ROOT_PASSWORD=D3BfxMgEV2qrihegJb28H97M3fDIHhj0QjrRnDuprLbMiJXji5
+        ports:
+            - '3306:3306'
+        expose:
+            - 3306
+        volumes:
+            - ./mysql:/var/lib/mysql
